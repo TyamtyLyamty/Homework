@@ -55,7 +55,7 @@ def nap():
             player.lost_money(bet)
         if player.money <= 0:
             print('У вас закончились деньги!')
-            return
+            break
 
         while True:
             try:
@@ -65,7 +65,10 @@ def nap():
                     break
                 elif repeat == 'нет':
                     print('- Ну, как знаешь, приходи еще! - говорит мужик')
-                    break
+                    print(f"\n=== Итог игры ===")
+                    print(f"Ваш финальный баланс: {player.money} рублей")
+                    print(f"Количество побед: {player.wins}")
+                    return
                 else:
                     print('Пожалуйста, введите да или нет')
 
@@ -110,10 +113,6 @@ while True:
             print(f'Необходимо ввести цифру от 1 до 3')
         except NotImplementedException as e:
             print(f'{e}')
-
-            print(f"\n=== Итог игры ===")
-            print(f"Ваш финальный баланс: {player.money} рублей")
-            print(f"Количество побед: {player.wins}")
 
 if __name__ == '__main__':
     player = Player()
